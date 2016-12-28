@@ -1,0 +1,26 @@
+Some syntax for tasks with esxi
+
+https://pubs.vmware.com/vsphere-50/index.jsp?topic=%2Fcom.vmware.vcli.ref.doc_50%2Fesxcli_network.html
+list down network nics.
+esxcli network nic list
+
+list down vswitches on esxi
+esxcli network vswitch standard list
+
+
+get policty of active/standy vmnics on vswitch
+esxcli network vswitch standard policy failover get --vswitch-name vSwitch0
+
+
+Set 4 nics as active nics
+esxcli network vswitch standard policy failover set --active-uplinks vmnic0,vmnic1,vmnic2,vmnic3 --vswitch-name  vSwitch0
+
+
+List all of the port groups currently on the system.
+esxcli network vswitch standard portgroup list
+
+Adding portgroup(vlan) to vswitch
+esxcli network vswitch standard portgroup add --vswitch-name vSwitch0 --portgroup-name financevlan
+
+configuring  vlan on portgroup
+esxcli network vswitch standard portgroup set --portgroup-name financevlan --vlan-id 100
